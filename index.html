@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <object class="logs" id="logs" data="./logs.txt" width="600" height="500">
+    </object>
+
+</body>
+<script type="text/javascript">
+    function refresh() {
+        const element = document.getElementById("logs")
+        const newElem = document.createElement("object")
+        newElem.class = "logs"
+        newElem.id = "logs"
+        newElem.data = "./logs.txt"
+        newElem.width = "600"
+        newElem.height = "500"
+
+        element.remove()
+        document.body.appendChild(newElem)
+    }
+    setInterval(refresh, 1000);
+</script>
+
+</html>
