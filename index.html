@@ -6,27 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0"/>
 </head>
 
 <body>
-    <object class="logs" id="logs" data="./logs.txt" width="600" height="500">
-    </object>
-
+    <div id="logs-container">
+    <iframe id="logs" src="logs.txt" title="snort table" width="1850" height="925"></iframe>
+    </div>
 </body>
-<script type="text/javascript">
-    function refresh() {
-        const element = document.getElementById("logs")
-        const newElem = document.createElement("object")
-        newElem.class = "logs"
-        newElem.id = "logs"
-        newElem.data = "./logs.txt"
-        newElem.width = "600"
-        newElem.height = "500"
 
-        element.remove()
-        document.body.appendChild(newElem)
-    }
-    setInterval(refresh, 1000);
+<script>
+const http = new XMLHttpRequest()
+
+http.open("GET", "192.168.0.248:1338")
+http.send()
+
+http.onload = () => console.log(http.responseText)
 </script>
 
 </html>
